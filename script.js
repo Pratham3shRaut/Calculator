@@ -18,9 +18,10 @@ buttons.forEach((button) => {
                 inputBox.value = inputBox.value.slice(0, -1);
                 break;
             case '=':
-                // Evaluate the expression in the input box
+                // Remove leading zeros and evaluate the expression
+                let expression = inputBox.value.replace(/^0+/, '');
                 try {
-                    inputBox.value = eval(inputBox.value);
+                    inputBox.value = eval(expression);
                 } catch (error) {
                     inputBox.value = 'Error';
                 }
@@ -31,3 +32,4 @@ buttons.forEach((button) => {
         }
     });
 });
+
